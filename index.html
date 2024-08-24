@@ -34,14 +34,51 @@
             </div>
         </div>
         <form id="spendingForm">
+            <input type="text" id="newPersonName" placeholder="Add New Person (Optional)">
+            <select id="existingPersonName">
+                <option value="">Select Existing Person (Optional)</option>
+            </select>
             <input type="text" id="description" placeholder="Description" required>
             <input type="number" id="amount" placeholder="Amount" required>
+            <input type="date" id="date" placeholder="Date (Optional)">
+            <input type="time" id="time" placeholder="Time (Optional)">
             <button type="submit">Add to History</button>
         </form>
         <div class="history">
             <h2>Transaction History</h2>
-            <ul id="transactionHistory"></ul>
+            <table id="transactionTable">
+                <thead>
+                    <tr>
+                        <th>Person</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionHistory"></tbody>
+            </table>
             <h3>Total Spending: ₹<span id="totalSpending">0.00</span></h3>
+        </div>
+        <div class="person-totals">
+            <h2>Individual Spending</h2>
+            <table id="personTotalTable">
+                <thead>
+                    <tr>
+                        <th>Person</th>
+                        <th>Spending Limit</th>
+                        <th>Total Spending</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="personTotalHistory"></tbody>
+            </table>
+        </div>
+        <!-- New Section for Exceeded Limits -->
+        <div class="exceeded-limits" id="exceededLimitsSection">
+            <h2>Exceeded Limits</h2>
+            <div id="exceededLimitsDisplay"></div>
         </div>
     </div>
     <script src="script.js"></script>
