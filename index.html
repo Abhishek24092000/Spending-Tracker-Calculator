@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spending Tracker Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Spending Tracker Calculator</h1>
+        <div class="calculator">
+            <input type="text" id="display" readonly>
+            <div class="buttons">
+                <button class="btn operator" onclick="clearDisplay()">C</button>
+                <button class="btn operator" onclick="deleteLast()">DEL</button>
+                <button class="btn operator" onclick="appendOperator('/')">/</button>
+                <button class="btn number" onclick="appendNumber('7')">7</button>
+                <button class="btn number" onclick="appendNumber('8')">8</button>
+                <button class="btn number" onclick="appendNumber('9')">9</button>
+                <button class="btn operator" onclick="appendOperator('*')">*</button>
+                <button class="btn number" onclick="appendNumber('4')">4</button>
+                <button class="btn number" onclick="appendNumber('5')">5</button>
+                <button class="btn number" onclick="appendNumber('6')">6</button>
+                <button class="btn operator" onclick="appendOperator('-')">-</button>
+                <button class="btn number" onclick="appendNumber('1')">1</button>
+                <button class="btn number" onclick="appendNumber('2')">2</button>
+                <button class="btn number" onclick="appendNumber('3')">3</button>
+                <button class="btn operator" onclick="appendOperator('+')">+</button>
+                <button class="btn number" onclick="appendNumber('0')">0</button>
+                <button class="btn number" onclick="appendNumber('.')">.</button>
+                <button class="btn equals" onclick="calculate()">=</button>
+            </div>
+        </div>
+        <form id="spendingForm">
+            <input type="text" id="description" placeholder="Description" required>
+            <input type="number" id="amount" placeholder="Amount" required>
+            <button type="submit">Add to History</button>
+        </form>
+        <div class="history">
+            <h2>Transaction History</h2>
+            <ul id="transactionHistory"></ul>
+            <h3>Total Spending: ₹<span id="totalSpending">0.00</span></h3>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
