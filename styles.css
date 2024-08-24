@@ -101,17 +101,20 @@ form input, form select {
 
 .placeholder-wrapper {
     position: relative;
-    width: 100%;
+    width: calc(100% - 24px);
+    margin-bottom: 10px;
 }
 
 .placeholder-wrapper input {
-    width: calc(100% - 24px);
+    width: 100%;
     background-color: #333;
     color: #fff;
     border: none;
     border-radius: 5px;
     padding: 15px;
     font-size: 16px;
+    position: relative;
+    z-index: 1;
 }
 
 .input-placeholder {
@@ -122,6 +125,7 @@ form input, form select {
     color: #666;
     pointer-events: none;
     display: none;
+    z-index: 0;
 }
 
 form button {
@@ -212,6 +216,10 @@ h1, h2, h3 {
         width: calc(100% - 12px);
         padding: 12px;
         font-size: 14px;
+    }
+
+    .placeholder-wrapper {
+        width: calc(100% - 12px);
     }
 
     form button {
