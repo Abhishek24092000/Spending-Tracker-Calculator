@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Spending Tracker Calculator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -40,8 +40,15 @@
             </select>
             <input type="text" id="description" placeholder="Description" required>
             <input type="number" id="amount" placeholder="Amount" required>
-            <input type="date" id="date" placeholder="Date (Optional)">
-            <input type="time" id="time" placeholder="Time (Optional)">
+            <!-- Input fields for Date and Time with placeholder effect -->
+            <div class="placeholder-wrapper">
+                <input type="date" id="date" class="placeholder" onfocus="removePlaceholder(this)" onblur="showPlaceholder(this, 'Date')" onchange="removePlaceholder(this)">
+                <span class="input-placeholder">Date</span>
+            </div>
+            <div class="placeholder-wrapper">
+                <input type="time" id="time" class="placeholder" onfocus="removePlaceholder(this)" onblur="showPlaceholder(this, 'Time')" onchange="removePlaceholder(this)">
+                <span class="input-placeholder">Time</span>
+            </div>
             <button type="submit">Add to History</button>
         </form>
         <div class="history">
@@ -82,5 +89,24 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script>
+        // JavaScript to handle placeholder for date and time fields
+        function showPlaceholder(element, placeholder) {
+            if (!element.value) {
+                element.nextElementSibling.style.display = 'block';
+            }
+        }
+
+        function removePlaceholder(element) {
+            element.nextElementSibling.style.display = 'none';
+        }
+
+        // Initialize placeholders on page load
+        window.onload = function () {
+            loadTransactionHistory(); // Existing function call
+            showPlaceholder(document.getElementById('date'), 'Date');
+            showPlaceholder(document.getElementById('time'), 'Time');
+        };
+    </script>
 </body>
 </html>
