@@ -94,8 +94,34 @@ form input, form select {
     color: #fff;
     border: none;
     border-radius: 5px;
-    padding: 10px;
+    padding: 15px;
     margin: 5px 0;
+    font-size: 16px;
+}
+
+.placeholder-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.placeholder-wrapper input {
+    width: calc(100% - 24px);
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 16px;
+}
+
+.input-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #666;
+    pointer-events: none;
+    display: none;
 }
 
 form button {
@@ -103,11 +129,12 @@ form button {
     color: #fff;
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 15px 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: calc(100% - 24px);
     margin-top: 10px;
+    font-size: 18px;
 }
 
 form button:hover {
@@ -121,6 +148,7 @@ form button:hover {
     padding: 10px;
     border-radius: 5px;
     margin-top: 20px;
+    overflow-x: auto; /* Allow horizontal scrolling */
 }
 
 table {
@@ -172,11 +200,35 @@ h1, h2, h3 {
 
     button.btn {
         padding: 10px 0;
-        font-size: 16px;
+        font-size: 20px;
     }
 
     #display {
         font-size: 20px;
         height: 40px;
+    }
+
+    form input, form select {
+        width: calc(100% - 12px);
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    form button {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .buttons {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+    }
+
+    .emoji {
+        font-size: 40px;
+    }
+
+    .exceeded-amount {
+        font-size: 24px;
     }
 }
